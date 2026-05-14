@@ -154,7 +154,7 @@ def get_hotlist_data(source):
     print(f"正在从 {source} 获取数据...")
     try:
         if source == "zhihu":
-            url = "https://api.zhihu.com/topstory/hot-list"
+            url = "https://newsnow.busiyi.world/api/s?id=toutiao"
             res = requests.get(url, headers=HEADERS, timeout=10).json()
             titles = [item['target']['title'] for item in res['data']]
         elif source == "bilibili":
