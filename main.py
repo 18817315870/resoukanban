@@ -15,7 +15,7 @@ from zhdate import ZhDate
 ENABLED_PAGES = "1,2,3,4"
 
 # 2. 热搜源设置：目前支持 'zhihu', 'bilibili', 'github'
-HOTLIST_SOURCE = "zhihu"  # 在这里修改你想看的热搜源
+HOTLIST_SOURCE = "toutiao"  # 在这里修改你想看的热搜源
 
 # 3. 天气城市设置
 # 高德天气城市代码（默认：天津市津南区 120112，北京是 110000）
@@ -180,7 +180,7 @@ def task_hotlist():
     if "1" not in ENABLED_PAGES and "2" not in ENABLED_PAGES:
         return
         
-    source_map = {"zhihu": "头条热榜", "bilibili": "B站热搜", "github": "GitHub 热门"}
+    source_map = {"toutiao": "头条热榜", "bilibili": "B站热搜", "github": "GitHub 热门"}
     titles = get_hotlist_data(HOTLIST_SOURCE)
     title_display = source_map.get(HOTLIST_SOURCE, "热门看板")
 
