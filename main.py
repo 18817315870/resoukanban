@@ -156,7 +156,7 @@ def get_hotlist_data(source):
         if source == "zhihu":
             url = "https://newsnow.busiyi.world/api/s?id=toutiao"
             res = requests.get(url, headers=HEADERS, timeout=10).json()
-            titles = [item['target']['title'] for item in res['data']]
+            titles = [item['title'] for item in res['data']]
         elif source == "bilibili":
             url = "https://api.bilibili.com/x/web-interface/wbi/search/square?limit=20"
             res = requests.get(url, headers=HEADERS, timeout=10).json()
@@ -180,7 +180,7 @@ def task_hotlist():
     if "1" not in ENABLED_PAGES and "2" not in ENABLED_PAGES:
         return
         
-    source_map = {"zhihu": "知乎热榜", "bilibili": "B站热搜", "github": "GitHub 热门"}
+    source_map = {"zhihu": "头条热榜", "bilibili": "B站热搜", "github": "GitHub 热门"}
     titles = get_hotlist_data(HOTLIST_SOURCE)
     title_display = source_map.get(HOTLIST_SOURCE, "热门看板")
 
