@@ -153,10 +153,10 @@ def get_hotlist_data(source):
     titles = []
     print(f"正在从 {source} 获取数据...")
     try:
-        if source == "zhihu":
+        if source == "toutiao":
             url = "https://newsnow.busiyi.world/api/s?id=toutiao"
             res = requests.get(url, headers=HEADERS, timeout=10).json()
-            titles = [item['title'] for item in res['data']]
+            titles = [item["title"] for item in res["items"]]
         elif source == "bilibili":
             url = "https://api.bilibili.com/x/web-interface/wbi/search/square?limit=20"
             res = requests.get(url, headers=HEADERS, timeout=10).json()
